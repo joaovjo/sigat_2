@@ -21,7 +21,7 @@ export default function Header() {
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem className="md:block" >
-                            <BreadcrumbLink href="#" >
+                            <BreadcrumbLink href="./" >
                                 Início
                             </BreadcrumbLink>
                         </BreadcrumbItem>

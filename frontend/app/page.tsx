@@ -1,4 +1,5 @@
 import Tickets from "@/containers/tickets";
+import DemoPage from "@/containers/tickets/page";
 
 export default function Page() {
   return (
@@ -11,8 +12,8 @@ export default function Page() {
       {/* <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
       </div> */}
 
-<Tickets />
-
+{/* <Tickets /> */}
+<DemoPage />
 
     </div>
   )
