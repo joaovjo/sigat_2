@@ -1,25 +1,49 @@
 "use client"
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import { User } from "@/types/users-type"
 import { ColumnDef } from "@tanstack/react-table"
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-// export type Payment = {
-//     id: string
-//     amount: number
-//     status: "pending" | "processing" | "success" | "failed"
-//     email: string
-// }
+import { ArrowUpDown } from "lucide-react"
 
 export const columns: ColumnDef<User>[] = [
     {
         accessorKey: "id",
-        header: "#",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    #
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+    {
+        accessorKey: "avatar",
+        header: () => <div>Avatar</div>,
+        cell: ({ row }) => (
+            <Avatar className="size-8">
+                <AvatarImage src={row.original.avatar} alt={row.original.name} />
+                <AvatarFallback>{row.original.name.charAt(0)} </AvatarFallback>
+            </Avatar>
+        ),
     },
     {
         accessorKey: "name",
-        header: "Nome",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Nome
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
     },
     {
         accessorKey: "username",
@@ -32,11 +56,6 @@ export const columns: ColumnDef<User>[] = [
     {
         accessorKey: "password",
         header: "Senha",
-    },
-
-    {
-        accessorKey: "avatar",
-        header: "Avatar",
     },
 
     {

@@ -1,6 +1,6 @@
 import { Tickets } from "@/types/tickets-type"
 import { columns } from "./columns"
-import { DataTable } from "./data-table"
+import { DataTable } from "@/components/ui/data-table"
 
 export async function getData(): Promise<Tickets[]> {
     let api = await fetch(`${process.env.API_URL}/tickets`)

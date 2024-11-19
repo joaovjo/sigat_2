@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Header from "@/components/header";
-import nextConfig from "@/next.config";
+//import nextConfig from "@/next.config";
 
 export const metadata: Metadata = {
   title: process.env.APP_NAME,

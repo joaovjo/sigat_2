@@ -156,6 +156,8 @@ const navData = {
   ]
 }
 
+
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
@@ -168,7 +170,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Command className="size-6" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">SIGAT</span>
+                  <span className="truncate font-semibold">SIGAT 2</span>
                   <span className="truncate text-xs text-green-400 font-bold">Produção</span>
                 </div>
                 <ModeToggle />
