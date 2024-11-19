@@ -1,12 +1,11 @@
 "use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { User } from "@/types/users-type"
+import { Tickets } from "@/types/tickets-type"
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react"
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<Tickets>[] = [
     {
         accessorKey: "id",
         header: ({ column }) => {
@@ -22,68 +21,6 @@ export const columns: ColumnDef<User>[] = [
         }
     },
     {
-        accessorKey: "avatar",
-        header: () => <div>Avatar</div>,
-        cell: ({ row }) => (
-            <Avatar className="size-8">
-                <AvatarImage src={row.original.avatar} alt={row.original.name} />
-                <AvatarFallback>{row.original.name.charAt(0)} </AvatarFallback>
-            </Avatar>
-        ),
-    },
-    {
-        accessorKey: "name",
-        header: ({ column }) => {
-            return (
-                <Button
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Nome
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-            )
-        }
-    },
-    {
-        accessorKey: "username",
-        header: ({ column }) => {
-            return (
-                <Button
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Usuário
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-            )
-        }
-    },
-    {
-        accessorKey: "email",
-        header: "E-mail",
-    },
-    {
-        accessorKey: "password",
-        header: "Senha",
-    },
-
-    {
-        accessorKey: "role",
-        header: ({ column }) => {
-            return (
-                <Button
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Cargo/Função
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-            )
-        }
-    },
-
-    {
         accessorKey: "status",
         header: ({ column }) => {
             return (
@@ -96,5 +33,108 @@ export const columns: ColumnDef<User>[] = [
                 </Button>
             )
         }
-    }
+    },
+    {
+        accessorKey: "requester",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Solicitante
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+    {
+        accessorKey: "subject",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Assunto
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+
+    {
+        accessorKey: "location",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Local
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+
+    {
+        accessorKey: "region",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Região
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+
+    {
+        accessorKey: "date",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Data
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+
+    {
+        accessorKey: "time",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Tempo
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
+
+    {
+        accessorKey: "responsible",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Responsável
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        }
+    },
 ]

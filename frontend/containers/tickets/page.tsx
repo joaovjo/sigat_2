@@ -1,5 +1,5 @@
 import { Tickets } from "@/types/tickets-type"
-import { columns } from "./columns"
+import { columns } from "../../app/tickets/columns"
 import { DataTable } from "@/components/ui/data-table"
 
 export async function getData(): Promise<Tickets[]> {

@@ -180,6 +180,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
+        
         <NavMain items={navData.navMain} />
         <NavProjects projects={navData.projects} />
         <NavSecondary items={navData.navSecondary} className="mt-auto" />
