@@ -1,14 +1,16 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/marcosgomesneto/bun-devcontainers/tree/main/src/basic-bun
 {
-  "name": "SIGAT Dev Container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
-  ],
-  "forwardPorts": [3000],
-  "postCreateCommand": "npm install",
-  "remoteUser": "node"
+  "name": "Bun Dev Container",
+  //"dockerFile": "Dockerfile",
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "oven.bun-vscode"
+      ]
+    }
+  }
 }
