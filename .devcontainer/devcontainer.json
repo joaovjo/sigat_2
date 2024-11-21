@@ -1,0 +1,14 @@
+{
+  "name": "SIGAT Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ],
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}
