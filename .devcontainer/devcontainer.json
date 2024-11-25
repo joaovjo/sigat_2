@@ -1,16 +1,21 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/marcosgomesneto/bun-devcontainers/tree/main/src/basic-bun
 {
-  "name": "Bun Dev Container",
-  //"dockerFile": "Dockerfile",
-  // Configure tool-specific properties.
-  "customizations": {
-    // Configure properties specific to VS Code.
-    "vscode": {
-      // Add the IDs of extensions you want installed when the container is created.
-      "extensions": [
-        "oven.bun-vscode"
-      ]
+    "name": "Angular + ASP.NET Core Dev Environment",
+    "dockerComposeFile": [
+      "../docker-compose.dev.yaml"
+    ],
+    "service": "frontend",
+    "workspaceFolder": "/app",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash"
+        },
+        "extensions": [
+          "ms-vscode.vscode-typescript-next",
+          "ms-dotnettools.csharp",
+          "ms-azuretools.vscode-docker"
+        ]
+      }
     }
   }
-}
+  
