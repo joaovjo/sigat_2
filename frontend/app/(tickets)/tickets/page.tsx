@@ -1,5 +1,5 @@
-import { Tickets } from "@/types/tickets-type"
-import { columns } from "../../app/tickets/columns"
+import { Tickets } from "@/types/tickets"
+import { columns } from "@/app/(tickets)/tickets/_components/columns"
 import { DataTable } from "@/components/ui/data-table"
 
 export async function getData(): Promise<Tickets[]> {
@@ -8,12 +8,10 @@ export async function getData(): Promise<Tickets[]> {
     return ticketsData
 }
 
-export default async function DemoPage() {
+export default async function TicketsPage() {
     let data = await getData()
 
     return (
-        <div className="flex-auto rounded-md bg-muted/50">
-            <DataTable columns={columns} data={data} />
-        </div>
+        <DataTable columns={columns} data={data} />
     )
 }

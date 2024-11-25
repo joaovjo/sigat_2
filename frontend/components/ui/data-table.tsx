@@ -52,12 +52,12 @@ export function DataTable<TData, TValue>({
             <div className="w-auto relative rounded-xl border">
                 <Table className="relative">
 
-                    <TableHeader>
+                    <TableHeader className="justify-between">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id}>
+                                        <TableHead key={header.id} className="text-center">
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -76,7 +76,7 @@ export function DataTable<TData, TValue>({
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
-                                    className={`${index % 2 === 0 ? "bg-primary/10" : "bg-primary/20"}`}
+                                    className={`${index % 2 === 0 ? "bg-primary/10" : "bg-primary/20"} text-center`}
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>

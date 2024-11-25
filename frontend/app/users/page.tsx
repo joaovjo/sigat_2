@@ -1,4 +1,4 @@
-import { userService } from "@/services/userService";
+import { userService } from "@/services/api/users";
 import { columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 
