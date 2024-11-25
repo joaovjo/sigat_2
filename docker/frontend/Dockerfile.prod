@@ -1,0 +1,12 @@
+FROM oven/bun:alpine
+
+WORKDIR /workspace
+
+COPY package.json bun.lockb ./
+RUN bun install --production
+
+COPY . .
+
+EXPOSE 80
+
+CMD ["bun", "run", "start:prod"]

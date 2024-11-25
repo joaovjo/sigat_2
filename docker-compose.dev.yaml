@@ -1,34 +1,24 @@
-version: '3.9'
-services:
-  frontend:
-    build:
-      context: .
-      dockerfile: ./Docker/Frontend/Dockerfile.dev
-    ports:
-      - "4200:4200"
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - ./src:/app
+version: "3.8"
 
+services:
   backend:
     build:
-      context: .
-      dockerfile: ./Docker/Backend/Dockerfile.dev
+      context: ./docker/backend
+      dockerfile: Dockerfile.dev
     ports:
       - "5000:5000"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
     volumes:
-      - ./MyApp.Api:/src/MyApp.Api
+      - ./backend:/src
+    env_file:
+      - ./backend/.env.dev
 
-  postgres:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
+  frontend:
+    build:
+      context: ./docker/frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
     volumes:
-      - db_data:/var/lib/postgresql/data
-volumes:
-  db_data:
+      - ./frontend:/workspace
+    env_file:
+      - ./frontend/.env.dev

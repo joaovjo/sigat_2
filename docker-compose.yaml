@@ -1,32 +1,20 @@
-version: '3.9'
-services:
-  frontend:
-    build:
-      context: .
-      dockerfile: ./Docker/Frontend/Dockerfile.prod
-    ports:
-      - "80:80"
-    environment:
-      - NODE_ENV=production
+version: "3.8"
 
+services:
   backend:
     build:
-      context: .
-      dockerfile: ./Docker/Backend/Dockerfile.prod
+      context: ./docker/backend
+      dockerfile: Dockerfile.prod
     ports:
-      - "5000:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-    depends_on:
-      - postgres
+      - "5000:5000"
+    env_file:
+      - ./backend/.env.prod
 
-  postgres:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
-    volumes:
-      - db_data:/var/lib/postgresql/data
-volumes:
-  db_data:
+  frontend:
+    build:
+      context: ./docker/frontend
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80"
+    env_file:
+      - ./frontend/.env.prod

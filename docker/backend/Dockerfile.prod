@@ -1,14 +1,9 @@
-# Base image for .NET 8.0 LTS (CBL-Mariner for security-focused production)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-cbl-mariner as base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-cbl-mariner
 
-# Set working directory
 WORKDIR /app
 
-# Copy compiled application
 COPY ./publish /app
 
-# Expose port
 EXPOSE 5000
 
-# Start application
 ENTRYPOINT ["dotnet", "YourAppName.dll"]

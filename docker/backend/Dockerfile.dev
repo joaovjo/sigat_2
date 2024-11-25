@@ -1,21 +1,14 @@
-# Base image for development (Alpine for lightweight environments)
-FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine as base
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine
 
-# Set working directory
-WORKDIR /src
+WORKDIR /workspace
 
-# Install dependencies
 RUN apk add --no-cache bash
 
-# Copy project files and restore dependencies
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copy the rest of the application code
 COPY . .
 
-# Expose port
 EXPOSE 5000
 
-# Start application in development mode
 CMD ["dotnet", "watch", "run", "--urls", "http://0.0.0.0:5000"]
